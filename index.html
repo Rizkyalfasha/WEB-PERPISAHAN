@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>💖 Untuk Emellya Amanda — Yang Selalu di Hati</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Nunito:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Pacifico&family=Kaushan+Script&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- AUDIO PLAYER -->
+<audio id="bgMusic" loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3" type="audio/mpeg">
+</audio>
+
+<!-- MUSIC CONTROL -->
+<div class="music-control" id="musicControl">
+  <button class="music-btn" id="musicBtn" onclick="toggleMusic()">
+    <svg class="play-icon" id="playIcon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+    <svg class="pause-icon" id="pauseIcon" viewBox="0 0 24 24" style="display:none"><path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/></svg>
+  </button>
+  <div class="music-wave" id="musicWave">
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+  <span class="music-label" id="musicLabel">Putar Musik ♪</span>
+</div>
+
+<!-- PROGRESS INDICATOR -->
+<div class="progress-bar" id="progressBar">
+  <div class="progress-fill" id="progressFill"></div>
+  <span class="progress-text" id="progressText">0%</span>
+</div>
+
+<!-- FLOATING HEARTS -->
+<div class="hearts-container" id="heartsContainer"></div>
+<div class="petals-container" id="petalsContainer"></div>
+
+<!-- BACKGROUND CANVAS -->
+<canvas id="bgCanvas"></canvas>
+
+<!-- LOADING SCREEN -->
+<div class="loader-screen" id="loaderScreen">
+  <div class="loader-content">
+    <div class="loader-heart">
+      <svg viewBox="0 0 100 90">
+        <path class="heart-outline" d="M50 85C50 85 5 55 5 28C5 15 14 5 25 5C35 5 45 12 50 20C55 12 65 5 75 5C86 5 95 15 95 28C95 55 50 85 50 85Z"/>
+      </svg>
+    </div>
+    <p class="loader-text">Menyiapkan sesuatu yang spesial untuk Emellya...</p>
+    <div class="loader-bar"><div class="loader-progress" id="loaderProgress"></div></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SECTION 0 — LANDING PAGE
+═══════════════════════════════════════════════════════════════ -->
+<section class="section active" id="section0">
+  <div class="stars-layer" id="starsLayer"></div>
+  <div class="landing-bg"></div>
+  
+  <div class="landing-content">
+    <div class="land-ornament top">🌸</div>
+    
+    <p class="land-whisper">Ada sesuatu yang ingin kusampaikan...</p>
+    
+    <h1 class="land-title">
+      <span class="title-line" style="--delay:0s">Untuk</span>
+      <span class="title-line highlight" style="--delay:.3s">Emellya Amanda</span>
+      <span class="title-line" style="--delay:.6s">Yang Selalu</span>
+      <span class="title-line highlight" style="--delay:.9s">di Hatiku</span>
+    </h1>
+    
+    <div class="land-divider">
+      <span class="divider-line"></span>
+      <span class="divider-heart">💕</span>
+      <span class="divider-line"></span>
+    </div>
+    
+    <p class="land-subtitle">Di hari perpisahan ini, ada begitu banyak yang ingin kukatakan padamu... Tapi kata-kata saja tak cukup untuk mengungkapkan semuanya.</p>
+    
+    <button class="land-btn" onclick="startJourney()">
+      <span class="btn-shine"></span>
+      <span class="btn-text">Buka Pesanku 💌</span>
+    </button>
+    
+    <p class="land-hint">
+      <span class="hint-icon">↓</span>
+      <span>Scroll untuk mulai perjalanan ini</span>
+    </p>
+    
+    <div class="land-ornament bottom">🌸</div>
+  </div>
+  
+  <div class="floating-elements">
+    <span class="float-emoji" style="--x:10%;--y:20%;--delay:0s;--dur:6s">💖</span>
+    <span class="float-emoji" style="--x:85%;--y:15%;--delay:1s;--dur:7s">✨</span>
+    <span class="float-emoji" style="--x:15%;--y:75%;--delay:2s;--dur:8s">🌸</span>
+    <span class="float-emoji" style="--x:90%;--y:80%;--delay:1.5s;--dur:6.5s">💝</span>
+    <span class="float-emoji" style="--x:50%;--y:90%;--delay:.5s;--dur:7.5s">🦋</span>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SECTION 1 — AWAL PERKENALAN
+═══════════════════════════════════════════════════════════════ -->
+<section class="section" id="section1">
+  <div class="sec-inner">
+    <div class="sec-badge">
+      <span class="badge-num">01</span>
+      <span class="badge-text">Perkenalan Pertama</span>
+    </div>
+    
+    <h2 class="sec-title">Ketika <em>Pertama Kali</em> Bertemu Denganmu...</h2>
+    
+    <div class="story-card">
+      <div class="story-icon">🌟</div>
+      <div class="story-text">
+        <p class="story-p reveal" style="--d:.1s">Aku masih ingat dengan jelas hari pertama kita bertemu di SMP.</p>
+        <p class="story-p reveal" style="--d:.3s">Kamu yang <span class="hl-pink">pendiam</span>, duduk dengan tenang di sudut kelas.</p>
+        <p class="story-p reveal" style="--d:.5s">Awalnya aku pikir kamu itu <span class="hl-purple">cuek dan dingin</span>...</p>
+        <p class="story-p reveal" style="--d:.7s">Tapi ternyata aku salah besar.</p>
+        
+        <div class="story-divider" style="--d:.9s">✦ ✦ ✦</div>
+        
+        <p class="story-p reveal" style="--d:1.1s">Di balik sikapmu yang pendiam itu,</p>
+        <p class="story-p reveal" style="--d:1.3s">ada <span class="hl-gold">kehangatan</span> yang luar biasa.</p>
+        <p class="story-p reveal" style="--d:1.5s">Ada <span class="hl-rose">kebaikan</span> yang tulus.</p>
+        <p class="story-p reveal" style="--d:1.7s">Dan ada seseorang yang sangat <span class="hl-pink">istimewa</span>.</p>
+      </div>
+    </div>
+    
+    <div class="photo-placeholder" id="photo1">
+      <div class="photo-border">
+        <div class="photo-content">
+          <div class="photo-icon">📸</div>
+          <p class="photo-caption">Kenangan Pertama Kita</p>
+          <p class="photo-hint">Upload foto kenangan pertama kalian di sini</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="nav-buttons">
+      <button class="nav-btn next" onclick="nextSection()">Lanjutkan →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SECTION 2 — PERJALANAN KITA
+═══════════════════════════════════════════════════════════════ -->
+<section class="section" id="section2">
+  <div class="sec-inner wide">
+    <div class="sec-badge">
+      <span class="badge-num">02</span>
+      <span class="badge-text">Perjalanan Kita</span>
+    </div>
+    
+    <h2 class="sec-title">Kenangan yang <em>Tak Terlupakan</em></h2>
+    
+    <div class="timeline">
+      
+      <div class="timeline-item" style="--i:1">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="card-date">Awal Perkenalan</div>
+          <h3>Dari Teman Sekelas...</h3>
+          <p>Kita dimulai sebagai teman sekelas yang biasa saja. Kamu yang pendiam, aku yang berusaha memulai percakapan. Setiap senyummu membuatku merasa berhasil membuka sedikit dinding yang kamu bangun.</p>
+        </div>
+      </div>
+      
+      <div class="timeline-item" style="--i:2">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="card-date">Menjadi Lebih Dekat</div>
+          <h3>Menjadi Sahabat</h3>
+          <p>Hari demi hari, kita semakin dekat. Aku mulai mengerti caramu berkomunikasi. Kamu yang tidak banyak bicara, tapi matamu selalu bercerita. Aku belajar memahami diam-diammu, dan kamu mulai terbuka padaku.</p>
+        </div>
+      </div>
+      
+      <div class="timeline-item" style="--i:3">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="card-date">Momen Spesial</div>
+          <h3>Ketika Aku Menyadari...</h3>
+          <p>Ada saat di mana aku sadar, kamu bukan hanya teman biasa. Caramu memperhatikan hal-hal kecil, caramu peduli tanpa kata-kata, caramu ada di saat aku butuh... semuanya membuatku menyadari betapa istimewanya kamu.</p>
+        </div>
+      </div>
+      
+      <div class="timeline-item" style="--i:4">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="card-date">Hubungan Kita</div>
+          <h3>Kita Bersama ❤️</h3>
+          <p>Dan sekarang, kita sudah bersama. Meskipun kamu masih pendiam seperti dulu, tapi aku sudah bisa membaca setiap gerakanmu, setiap tatapanmu. Kebersamaan kita mungkin berbeda dengan pasangan lain, tapi itulah yang membuatnya spesial.</p>
+        </div>
+      </div>
+      
+    </div>
+    
+    <div class="nav-buttons two">
+      <button class="nav-btn prev" onclick="prevSection()">← Kembali</button>
+      <button class="nav-btn next" onclick="nextSection()">Lanjutkan →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SECTION 3 — HAL YANG AKU SUKA
+═══════════════════════════════════════════════════════════════ -->
+<section class="section" id="section3">
+  <div class="sec-inner">
+    <div class="sec-badge">
+      <span class="badge-num">03</span>
+      <span class="badge-text">Yang Aku Suka</span>
+    </div>
+    
+    <h2 class="sec-title">Hal-hal yang Membuatku <em>Jatuh Cinta</em> Padamu</h2>
+    
+    <div class="love-grid">
+      
+      <div class="love-card" style="--i:1">
+        <div class="love-emoji">💕</div>
+        <h3>Sifat Pendiammu</h3>
+        <p>Yang orang lain anggap sebagai kekurangan, bagiku itu adalah keunikan terbesar. Kamu tidak perlu banyak bicara untuk membuatku mengerti. Diam-diammu penuh makna.</p>
+      </div>
+      
+      <div class="love-card" style="--i:2">
+        <div class="love-emoji">✨</div>
+        <h3>Cara Kamu Peduli</h3>
+        <p>Kamu mungkin tidak sering mengucapkan kata-kata manis, tapi caramu memperhatikan, caramu mengingat hal-hal kecil tentangku... itu lebih berarti dari seribu kata.</p>
+      </div>
+      
+      <div class="love-card" style="--i:3">
+        <div class="love-emoji">🌸</div>
+        <h3>Senyuman Tulusmu</h3>
+        <p>Senyummu jarang terlihat, tapi ketika kamu tersenyum... duniaku rasanya berhenti sejenak. Setiap senyummu adalah hadiah yang sangat berharga bagiku.</p>
+      </div>
+      
+      <div class="love-card" style="--i:4">
+        <div class="love-emoji">🦋</div>
+        <h3>Caramu Mendengarkan</h3>
+        <p>Kamu mungkin pendiam, tapi kamu pendengar terbaik yang pernah aku punya. Matamu yang fokus, anggukan kepalamu... membuatku merasa didengar dan dimengerti.</p>
+      </div>
+      
+      <div class="love-card" style="--i:5">
+        <div class="love-emoji">💖</div>
+        <h3>Kehadiranmu</h3>
+        <p>Bahkan tanpa kata-kata, kehadiranmu saja sudah cukup membuatku tenang. Kamu adalah tempat ternyamanku, pelabuhan teraman di tengah badai hidupku.</p>
+      </div>
+      
+      <div class="love-card" style="--i:6">
+        <div class="love-emoji">🌟</div>
+        <h3>Dirimu Apa Adanya</h3>
+        <p>Aku jatuh cinta pada dirimu yang apa adanya. Tidak perlu berubah, tidak perlu berpura-pura. Kamu sempurna dengan segala kependiamanmu, Emellya.</p>
+      </div>
+      
+    </div>
+    
+    <div class="nav-buttons two">
+      <button class="nav-btn prev" onclick="prevSection()">← Kembali</button>
+      <button class="nav-btn next" onclick="nextSection()">Lanjutkan →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SECTION 4 — SURAT CINTA
+═══════════════════════════════════════════════════════════════ -->
+<section class="section" id="section4">
+  <div class="sec-inner">
+    <div class="sec-badge">
+      <span class="badge-num">04</span>
+      <span class="badge-text">Surat Untukmu</span>
+    </div>
+    
+    <h2 class="sec-title">Surat <em>dari Hatiku</em></h2>
+    
+    <div class="envelope-scene" id="envelopeScene">
+      <div class="envelope" id="envelope" onclick="openEnvelope()">
+        <div class="env-body">
+          <div class="env-flap" id="envFlap"></div>
+          <div class="env-front">
+            <div class="env-heart">💌</div>
+            <p class="env-text">Ketuk untuk membuka</p>
+          </div>
+        </div>
+      </div>
+      <p class="env-hint">Ada surat spesial untukmu di dalam amplop ini...</p>
+    </div>
+    
+    <div class="letter-wrap" id="letterWrap" style="display:none">
+      <div class="letter">
+        <div class="letter-header">
+          <p class="letter-date">Hari Perpisahan SMP, 2025</p>
+          <div class="letter-ornament">~ ✿ ~</div>
+        </div>
+        
+        <p class="letter-greeting">Emellya tersayang,</p>
+        
+        <p class="letter-p">Aku tahu kamu mungkin tidak terlalu suka membaca tulisan panjang, tapi kali ini biarkan aku menumpahkan semua yang ada di hatiku...</p>
+        
+        <p class="letter-p">Tiga tahun kita bersama di SMP ini terasa begitu cepat berlalu. Dari orang asing yang duduk di kelas yang sama, menjadi teman, sahabat, dan akhirnya... pasangan. Perjalanan kita mungkin tidak selalu mulus, tapi setiap detiknya berharga bagiku.</p>
+        
+        <p class="letter-p">Aku tahu, kamu adalah tipe orang yang pendiam. Kamu tidak suka berbicara panjang lebar tentang perasaanmu. Tapi tahukah kamu? <em>Justru itu yang membuatku semakin jatuh cinta.</em></p>
+        
+        <p class="letter-p">Setiap tatapan matamu yang berbicara lebih keras dari kata-kata, setiap senyum kecil yang kamu berikan hanya untukku, setiap kali kamu diam-diam memperhatikanku dari jauh... semua itu membuatku merasa menjadi orang paling beruntung di dunia.</p>
+        
+        <p class="letter-p">Hari ini kita berpisah. SMP berakhir, dan kita akan melanjutkan ke jenjang baru. Tapi aku ingin kamu tahu sesuatu...</p>
+        
+        <p class="letter-p highlight-text"><strong>Tidak peduli seberapa jauh jarak memisahkan kita nanti, tidak peduli seberapa sibuk kita dengan dunia masing-masing... kamu akan selalu punya tempat spesial di hatiku.</strong></p>
+        
+        <p class="letter-p">Terima kasih sudah mau membuka hatimu yang tertutup untukku. Terima kasih sudah percaya padaku meskipun kamu sulit percaya pada orang lain. Terima kasih sudah menjadi bagian dari hidupku.</p>
+        
+        <p class="letter-p">Aku janji, apapun yang terjadi nanti, aku akan selalu ada untukmu. Di saat kamu butuh teman bicara (meskipun kamu lebih suka mendengarkan), di saat kamu merasa sendiri, di saat kamu butuh seseorang yang mengerti tanpa perlu banyak kata...</p>
+        
+        <p class="letter-p"><em>Aku akan selalu di sini. Menunggumu. Menjagamu. Mencintaimu.</em></p>
+        
+        <div class="letter-ornament">~ ✿ ~</div>
+        
+        <p class="letter-closing">Dengan seluruh hatiku yang penuh cinta,</p>
+        <p class="letter-signature">Yang selalu mencintaimu 💕</p>
+        
+        <div class="letter-ps">
+          <p><strong>P.S.</strong> Aku tahu kamu suka warna pink. Makanya website ini aku buat dengan tema pink, semua untukmu. Sama seperti hidupku sekarang, semuanya jadi lebih berwarna karena kamu. 🌸</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="nav-buttons two">
+      <button class="nav-btn prev" onclick="prevSection()">← Kembali</button>
+      <button class="nav-btn next" onclick="nextSection()">Lanjutkan →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SECTION 5 — GALERI FOTO
+═══════════════════════════════════════════════════════════════ -->
+<section class="section" id="section5">
+  <div class="sec-inner wide">
+    <div class="sec-badge">
+      <span class="badge-num">05</span>
+      <span class="badge-text">Galeri Kenangan</span>
+    </div>
+    
+    <h2 class="sec-title">Momen <em>Berharga</em> Bersama</h2>
+    <p class="sec-subtitle">Setiap foto adalah cerita, setiap cerita adalah kenangan yang akan selalu kuingat...</p>
+    
+    <div class="photo-grid">
+      
+      <div class="photo-item" style="--i:1">
+        <div class="photo-frame">
+          <div class="photo-img">
+            <div class="photo-placeholder-icon">📷</div>
+            <p class="photo-placeholder-text">Foto 1</p>
+          </div>
+          <div class="photo-overlay">
+            <h3>Kenangan Pertama</h3>
+            <p>Momen ketika kita mulai mendekat</p>
+          </div>
+        </div>
+        <p class="photo-label">Awal Cerita Kita</p>
+      </div>
+      
+      <div class="photo-item" style="--i:2">
+        <div class="photo-frame">
+          <div class="photo-img">
+            <div class="photo-placeholder-icon">📷</div>
+            <p class="photo-placeholder-text">Foto 2</p>
+          </div>
+          <div class="photo-overlay">
+            <h3>Tawa Bersama</h3>
+            <p>Momen kebahagiaan yang terpancar</p>
+          </div>
+        </div>
+        <p class="photo-label">Kebersamaan</p>
+      </div>
+      
+      <div class="photo-item" style="--i:3">
+        <div class="photo-frame">
+          <div class="photo-img">
+            <div class="photo-placeholder-icon">📷</div>
+            <p class="photo-placeholder-text">Foto 3</p>
+          </div>
+          <div class="photo-overlay">
+            <h3>Senyummu</h3>
+            <p>Yang selalu membuatku bahagia</p>
+          </div>
+        </div>
+        <p class="photo-label">Senyuman Terindah</p>
+      </div>
+      
+      <div class="photo-item" style="--i:4">
+        <div class="photo-frame">
+          <div class="photo-img">
+            <div class="photo-placeholder-icon">📷</div>
+            <p class="photo-placeholder-text">Foto 4</p>
+          </div>
+          <div class="photo-overlay">
+            <h3>Petualangan</h3>
+            <p>Setiap tempat jadi spesial bersamamu</p>
+          </div>
+        </div>
+        <p class="photo-label">Jalan-jalan Kita</p>
+      </div>
+      
+      <div class="photo-item" style="--i:5">
+        <div class="photo-frame">
+          <div class="photo-img">
+            <div class="photo-placeholder-icon">📷</div>
+            <p class="photo-placeholder-text">Foto 5</p>
+          </div>
+          <div class="photo-overlay">
+            <h3>Berdua</h3>
+            <p>Momen yang paling aku hargai</p>
+          </div>
+        </div>
+        <p class="photo-label">Kita Berdua</p>
+      </div>
+      
+      <div class="photo-item" style="--i:6">
+        <div class="photo-frame">
+          <div class="photo-img">
+            <div class="photo-placeholder-icon">📷</div>
+            <p class="photo-placeholder-text">Foto 6</p>
+          </div>
+          <div class="photo-overlay">
+            <h3>Kenangan Abadi</h3>
+            <p>Yang takkan pernah terlupakan</p>
+          </div>
+        </div>
+        <p class="photo-label">Selamanya di Hati</p>
+      </div>
+      
+    </div>
+    
+    <div class="gallery-note">
+      <p>✨ Setiap foto menceritakan kisah tentang kita. Upload foto-foto kalian untuk melengkapi galeri kenangan ini.</p>
+    </div>
+    
+    <div class="nav-buttons two">
+      <button class="nav-btn prev" onclick="prevSection()">← Kembali</button>
+      <button class="nav-btn next" onclick="nextSection()">Lanjutkan →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SECTION 6 — INTERACTIVE QUIZ
+═══════════════════════════════════════════════════════════════ -->
+<section class="section" id="section6">
+  <div class="sec-inner">
+    <div class="sec-badge">
+      <span class="badge-num">06</span>
+      <span class="badge-text">Game Kecil</span>
+    </div>
+    
+    <h2 class="sec-title">Seberapa <em>Kenal</em> Kamu Denganku?</h2>
+    <p class="sec-subtitle">Ayo test seberapa baik kamu mengenalku! (Meskipun aku yakin kamu pasti tahu jawabannya 😊)</p>
+    
+    <div class="quiz-container">
+      <div class="quiz-progress">
+        <div class="qp-bar" id="quizBar" style="width:0%"></div>
+        <span class="qp-label" id="quizLabel">0 / 5</span>
+      </div>
+      
+      <!-- Q1 -->
+      <div class="quiz-card active" id="quiz1">
+        <div class="q-number">Pertanyaan 1 dari 5</div>
+        <p class="q-question">Apa yang paling aku suka tentang sifat pendiammu?</p>
+        <div class="q-options">
+          <button class="q-opt" onclick="answerQuiz(1, false, this)">Karena kamu cuek</button>
+          <button class="q-opt" onclick="answerQuiz(1, true, this)">Karena kamu pendengar yang baik</button>
+          <button class="q-opt" onclick="answerQuiz(1, false, this)">Karena kamu pemalu</button>
+          <button class="q-opt" onclick="answerQuiz(1, false, this)">Karena kamu tidak suka bicara</button>
+        </div>
+      </div>
+      
+      <!-- Q2 -->
+      <div class="quiz-card" id="quiz2">
+        <div class="q-number">Pertanyaan 2 dari 5</div>
+        <p class="q-question">Kapan aku menyadari bahwa aku jatuh cinta padamu?</p>
+        <div class="q-options">
+          <button class="q-opt" onclick="answerQuiz(2, false, this)">Sejak pertama bertemu</button>
+          <button class="q-opt" onclick="answerQuiz(2, true, this)">Saat kamu mulai terbuka denganku</button>
+          <button class="q-opt" onclick="answerQuiz(2, false, this)">Saat kita jadi teman sekelas</button>
+          <button class="q-opt" onclick="answerQuiz(2, false, this)">Saat acara sekolah</button>
+        </div>
+      </div>
+      
+      <!-- Q3 -->
+      <div class="quiz-card" id="quiz3">
+        <div class="q-number">Pertanyaan 3 dari 5</div>
+        <p class="q-question">Apa yang membuatku paling bahagia saat bersamamu?</p>
+        <div class="q-options">
+          <button class="q-opt" onclick="answerQuiz(3, false, this)">Saat kita jalan-jalan</button>
+          <button class="q-opt" onclick="answerQuiz(3, false, this)">Saat kita bermain game</button>
+          <button class="q-opt" onclick="answerQuiz(3, true, this)">Kehadiranmu saja sudah cukup</button>
+          <button class="q-opt" onclick="answerQuiz(3, false, this)">Saat kita makan bersama</button>
+        </div>
+      </div>
+      
+      <!-- Q4 -->
+      <div class="quiz-card" id="quiz4">
+        <div class="q-number">Pertanyaan 4 dari 5</div>
+        <p class="q-question">Apa janjiku untukmu setelah perpisahan SMP?</p>
+        <div class="q-options">
+          <button class="q-opt" onclick="answerQuiz(4, false, this)">Kita akan sering bertemu</button>
+          <button class="q-opt" onclick="answerQuiz(4, true, this)">Aku akan selalu ada untukmu</button>
+          <button class="q-opt" onclick="answerQuiz(4, false, this)">Kita akan video call setiap hari</button>
+          <button class="q-opt" onclick="answerQuiz(4, false, this)">Kita akan chat terus</button>
+        </div>
+      </div>
+      
+      <!-- Q5 -->
+      <div class="quiz-card" id="quiz5">
+        <div class="q-number">Pertanyaan 5 dari 5</div>
+        <p class="q-question">Mengapa aku memilih warna pink untuk website ini?</p>
+        <div class="q-options">
+          <button class="q-opt" onclick="answerQuiz(5, false, this)">Karena pink warna cinta</button>
+          <button class="q-opt" onclick="answerQuiz(5, true, this)">Karena kamu suka warna pink</button>
+          <button class="q-opt" onclick="answerQuiz(5, false, this)">Karena pink warna romantis</button>
+          <button class="q-opt" onclick="answerQuiz(5, false, this)">Karena aku suka pink</button>
+        </div>
+      </div>
+      
+      <!-- RESULT -->
+      <div class="quiz-result" id="quizResult" style="display:none">
+        <div class="qr-emoji" id="qrEmoji">🎉</div>
+        <p class="qr-score" id="qrScore">5/5</p>
+        <div class="qr-stars" id="qrStars">⭐⭐⭐⭐⭐</div>
+        <p class="qr-message" id="qrMessage">WOW! Kamu benar-benar mengenalku!</p>
+        <button class="nav-btn next" onclick="nextSection()">Lanjutkan →</button>
+      </div>
+    </div>
+    
+    <div class="nav-buttons">
+      <button class="nav-btn prev" onclick="prevSection()">← Kembali</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SECTION 7 — HARAPAN & DOA
+═══════════════════════════════════════════════════════════════ -->
+<section class="section" id="section7">
+  <div class="sec-inner">
+    <div class="sec-badge">
+      <span class="badge-num">07</span>
+      <span class="badge-text">Harapan & Doa</span>
+    </div>
+    
+    <h2 class="sec-title">Doaku <em>Untukmu</em></h2>
+    
+    <div class="wishes-container">
+      
+      <div class="wish-card" style="--i:1">
+        <div class="wish-icon">🌟</div>
+        <h3>Masa Depan Cerah</h3>
+        <p>Semoga kamu bisa meraih semua impian dan cita-citamu. Aku tahu kamu pasti bisa, karena kamu lebih kuat dari yang kamu kira.</p>
+      </div>
+      
+      <div class="wish-card" style="--i:2">
+        <div class="wish-icon">💪</div>
+        <h3>Kekuatan di Setiap Langkah</h3>
+        <p>Semoga kamu selalu punya kekuatan untuk menghadapi setiap tantangan. Dan ingat, aku selalu ada di belakangmu untuk mendukungmu.</p>
+      </div>
+      
+      <div class="wish-card" style="--i:3">
+        <div class="wish-icon">✨</div>
+        <h3>Kebahagiaan Sejati</h3>
+        <p>Semoga kamu selalu bahagia, tersenyum lebih sering (karena senyummu sangat indah), dan menemukan kebahagiaan dalam hal-hal kecil.</p>
+      </div>
+      
+      <div class="wish-card" style="--i:4">
+        <div class="wish-icon">🌸</div>
+        <h3>Teman-teman Baik</h3>
+        <p>Semoga kamu bertemu dengan orang-orang baik yang menghargai dan memahami dirimu apa adanya, seperti aku menghargaimu.</p>
+      </div>
+      
+      <div class="wish-card" style="--i:5">
+        <div class="wish-icon">❤️</div>
+        <h3>Cinta yang Tulus</h3>
+        <p>Semoga kamu selalu merasakan cinta yang tulus, baik dari keluarga, teman, maupun dari orang yang mencintaimu (aku! 😊).</p>
+      </div>
+      
+      <div class="wish-card" style="--i:6">
+        <div class="wish-icon">🦋</div>
+        <h3>Menjadi Diri Sendiri</h3>
+        <p>Semoga kamu tidak pernah berubah. Tetaplah menjadi Emellya yang pendiam, yang lembut, yang istimewa. Karena itulah dirimu yang sempurna.</p>
+      </div>
+      
+    </div>
+    
+    <div class="special-wish">
+      <div class="sw-ornament">✦</div>
+      <p class="sw-text">Dan yang paling penting... <strong>Semoga kita tetap bersama, apapun yang terjadi.</strong> 💕</p>
+      <div class="sw-ornament">✦</div>
+    </div>
+    
+    <div class="nav-buttons two">
+      <button class="nav-btn prev" onclick="prevSection()">← Kembali</button>
+      <button class="nav-btn next" onclick="nextSection()">Lanjutkan →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SECTION 8 — KOTAK KEJUTAN
+═══════════════════════════════════════════════════════════════ -->
+<section class="section" id="section8">
+  <div class="sec-inner">
+    <div class="sec-badge">
+      <span class="badge-num">08</span>
+      <span class="badge-text">Kejutan Spesial</span>
+    </div>
+    
+    <h2 class="sec-title">Ada <em>Hadiah</em> Untukmu!</h2>
+    
+    <div class="gift-scene" id="giftScene">
+      <div class="gift-box" id="giftBox" onclick="openGift()">
+        <div class="gift-lid" id="giftLid">
+          <div class="gift-ribbon-h"></div>
+          <div class="gift-bow">
+            <div class="bow-left"></div>
+            <div class="bow-right"></div>
+            <div class="bow-center">💝</div>
+          </div>
+        </div>
+        <div class="gift-body">
+          <div class="gift-ribbon-v"></div>
+        </div>
+      </div>
+      <p class="gift-hint" id="giftHint">✨ Klik kotak untuk membuka hadiah!</p>
+    </div>
+    
+    <div class="gift-reveal" id="giftReveal" style="display:none">
+      <div class="gr-heart-big">💖</div>
+      <h3 class="gr-title">KAMU adalah hadiah terbesar dalam hidupku!</h3>
+      <p class="gr-text">Tidak ada hadiah apapun di dunia ini yang bisa menandingi kehadiranmu dalam hidupku, Emellya. Kamu adalah anugerah terindah yang pernah diberikan Tuhan kepadaku.</p>
+      <div class="gr-divider">~ ✿ ~</div>
+      <p class="gr-subtitle">Terima kasih sudah menjadi bagian dari ceritaku. Terima kasih sudah ada. Terima kasih sudah menjadi KAMU. 🌸</p>
+    </div>
+    
+    <div class="nav-buttons two">
+      <button class="nav-btn prev" onclick="prevSection()">← Kembali</button>
+      <button class="nav-btn next" onclick="nextSection()">Lanjutkan →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SECTION 9 — PENUTUP / FINALE
+═══════════════════════════════════════════════════════════════ -->
+<section class="section" id="section9">
+  <div class="sec-inner">
+    <div class="finale-wrap">
+      <div class="finale-hearts" id="finaleHearts"></div>
+      
+      <div class="finale-ornament top">🌸 ✿ 🌸</div>
+      
+      <p class="finale-eyebrow">— Pesan Terakhir Dariku —</p>
+      
+      <h2 class="finale-title">
+        <span>Selamat Tinggal,</span>
+        <em>SMP Kita</em>
+      </h2>
+      
+      <div class="finale-divider">
+        <span></span>
+        <span>💕</span>
+        <span></span>
+      </div>
+      
+      <blockquote class="finale-quote">
+        "Perpisahan bukan akhir. Ini adalah awal dari babak baru dalam hidup kita. Dan aku ingin kamu ada dalam setiap bab ceritaku ke depan."
+      </blockquote>
+      
+      <div class="finale-message">
+        <p>Emellya Amanda,</p>
+        <p>Meskipun hari ini kita harus berpisah dengan SMP, meskipun mungkin kita akan melanjutkan ke sekolah yang berbeda, meskipun jarak mungkin akan memisahkan kita...</p>
+        <p><strong>Aku tidak akan pernah melepaskanmu.</strong></p>
+        <p>Kamu adalah bagian dari hidupku sekarang. Kamu adalah alasan aku tersenyum setiap hari. Kamu adalah rumah di tengah dunia yang penuh ketidakpastian.</p>
+        <p>Apapun yang terjadi nanti, ingatlah selalu: <em class="hl-pink">Aku mencintaimu. Aku akan selalu mencintaimu.</em> 💖</p>
+      </div>
+      
+      <div class="finale-signature">
+        <p>Dengan seluruh cinta yang ada,</p>
+        <p class="sig-name">Yang akan selalu ada untukmu</p>
+        <p class="sig-date">Perpisahan SMP, 2025</p>
+      </div>
+      
+      <div class="finale-ornament bottom">🌸 ✿ 🌸</div>
+      
+      <div class="finale-actions">
+        <button class="finale-btn restart" onclick="restartJourney()">↺ Ulangi dari Awal</button>
+        <button class="finale-btn special" onclick="launchFireworks()">🎆 Peluk Hatiku</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FIREWORKS CANVAS -->
+<canvas id="fireworksCanvas"></canvas>
+
+<!-- CONFETTI LAYER -->
+<div id="confettiLayer"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
